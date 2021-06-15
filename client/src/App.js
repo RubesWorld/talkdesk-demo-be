@@ -3,6 +3,7 @@ import axios from "axios";
 import "./app.scss";
 import Logo from "./img/talkdesk_logo.png";
 import LandingForm from "./components/LandingForm";
+import qs from "qs";
 
 function App() {
   useEffect(() => {
@@ -15,10 +16,10 @@ function App() {
         "Content-Type": "application/x-www-form-urlencoded",
         Authorization: "Basic cd ..",
       },
-      data: {
+      data: qs.stringify({
         scope: "callback:write",
         grant_type: "client_credentials",
-      },
+      }),
     })
       .then((res) => {
         console.log("auth response", res);
