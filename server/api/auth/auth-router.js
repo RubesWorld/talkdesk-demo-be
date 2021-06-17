@@ -27,12 +27,4 @@ router.get("/", (req, res) => {
     });
 });
 
-// (error, response, body) => {
-//     //save token to session
-//     req.session.token = JSON.parse(body).access_token;
-
-//     //redirect to the react app
-//     res.redirect(`http://localhost:${config.clientport}`);
-//   };
-
 module.exports = router;
