@@ -11,8 +11,12 @@ server.use(cors());
 
 server.use("/api/auth", authRouter);
 
+if (process.env.NODE_ENV === "production") {
+  server.use(express.static("client/build"));
+}
+
 server.get("*", (req, res) => {
-  res.json({ message: "Welcome to OAuth Process" });
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
 module.exports = server;
