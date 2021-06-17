@@ -21,7 +21,6 @@ router.get("/", (req, res) => {
   })
     .then((response) => {
       res.status(201).json(response.data);
-      console.log("OAUth response", response.data);
     })
     .catch((err) => {
       console.log("oAuth error", err);

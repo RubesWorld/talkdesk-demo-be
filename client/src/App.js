@@ -7,26 +7,13 @@ import qs from "qs";
 
 function App() {
   useEffect(() => {
-    axios({
-      method: "POST",
-      url: "https://demoeng.talkdeskid.com/oauth/token",
-      headers: {
-        "Access-Control-Allow-Methods": "GET, DELETE, HEAD, OPTIONS",
-        "Access-Control-Allow-Origin": "http://localhost:3000",
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Basic cd ..",
-      },
-      data: qs.stringify({
-        scope: "callback:write",
-        grant_type: "client_credentials",
-      }),
-    })
+    axios
+      .get("/api/auth")
       .then((res) => {
-        console.log("auth response", res);
         localStorage.setItem("token", res.data.access_token);
       })
       .catch((err) => {
-        console.log("An error is happening", err);
+        console.log("An error is happening with axios token call", err);
       });
   }, []);
 
