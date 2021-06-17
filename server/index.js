@@ -6,9 +6,9 @@ const server = require("./api/server");
 const PORT = process.env.PORT || 3001;
 
 
-
 server.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  //   res.send("Hello Talkdesk Team");
+  res.json({ message: "Hello Talkdesk Team!" });
 });
 
 server.listen(PORT, () => {
